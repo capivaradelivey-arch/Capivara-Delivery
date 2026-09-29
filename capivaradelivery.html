@@ -1,1 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sistema Capivara Delivery - Montes Claros / MG</title>
+    <!-- Fonte Google Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. VARIÁVEIS E ESTILOS DA PRAÇA DIGITAL
+           ========================================================================== */
+        :root {
+            --primary: #d95700;
+            --primary-dark: #b34100;
+            --secondary: #2d6a4f;
+            --secondary-light: #52b788;
+            --accent: #ffb703;
+            --wood: #8d5b4c;
+            --wood-dark: #5c382b;
+            --bg-praça: #fbf7ee;
+            --bg-card: #ffffff;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --border-color: #e6ddc5;
+            --shadow-praça: 0 8px 20px rgba(141, 91, 76, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-praça);
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        /* Varandim de Luzinhas */
+        .garland-lights {
+            height: 10px;
+            background: repeating-linear-gradient(90deg, 
+                var(--accent) 0, var(--accent) 12px, 
+                transparent 12px, transparent 24px,
+                #e76f51 24px, #e76f51 36px,
+                transparent 36px, transparent 48px);
+            box-shadow: 0 2px 8px rgba(255, 183, 3, 0.4);
+        }
+
+        /* ==========================================================================
+           2. HEADER COM LOGÓTIPO OFICIAL
+           ========================================================================== */
+        header {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-bottom: 3px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .basket-btn {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 0 var(--primary-dark);
+        }
+
+        .basket-badge {
+            background: var(--accent);
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 900;
+        }
+
+        /* ==========================================================================
+           3. O CORETO COM O LOGÓTIPO EM DESTAQUE
+           ========================================================================== */
+        .praça-hero {
+            background: radial-gradient(circle at center, #fff9ed 0%, #f3e9d2 100%);
+            padding: 1.5rem 1rem 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px dashed var(--border-color);
+        }
+
+        .coreto-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 3px solid var(--wood);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1rem;
+            box-shadow: var(--shadow-praça);
+            position: relative;
+        }
+
+        .coreto-toldo {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 16px;
+            background: repeating-linear-gradient(135deg, 
+                var(--primary), var(--primary) 15px, 
+                #ffffff 15px, #ffffff 30px);
+            border-radius: 10px;
+            border: 2px solid var(--wood-dark);
+        }
+
+        .hero-logo-img {
+            max-width: 240px;
+            width: 80%;
+            height: auto;
+            margin: 0.8rem auto 0.4rem auto;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .praça-hero p {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 700;
+            margin: 0.5rem 0 1.2rem 0;
+        }
+
+        .search-praça {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .search-praça input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            outline: none;
+            background: var(--bg-praça);
+        }
+
+        .search-praça button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #1b4332;
+        }
+
+        /* ==========================================================================
+           4. MAPA INTERATIVO DA PRAÇA
+           ========================================================================== */
+        .praça-map-section {
+            max-width: 1100px;
+            margin: 1.8rem auto;
+            padding: 0 1rem;
+        }
+
+        .map-title {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--wood-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .praça-interactive-map {
+            background: #e9f5db;
+            border: 3px solid var(--secondary-light);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem 0.8rem;
+            box-shadow: inset 0 0 20px rgba(45, 106, 79, 0.15);
+        }
+
+        .kiosks-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .kiosk-btn {
+            background: white;
+            border: 2px solid var(--wood);
+            border-radius: var(--radius-md);
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 var(--wood);
+        }
+
+        .kiosk-btn:active, .kiosk-btn.active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--wood);
+            background: #fff8e1;
+            border-color: var(--primary);
+        }
+
+        .kiosk-mini-toldo {
+            height: 8px;
+            width: 80%;
+            margin: -0.8rem auto 0.4rem auto;
+            background: repeating-linear-gradient(90deg, 
+                var(--primary) 0, var(--primary) 8px, 
+                #ffffff 8px, #ffffff 16px);
+            border-radius: 0 0 6px 6px;
+            border: 1px solid var(--wood);
+        }
+
+        .kiosk-icon { font-size: 1.8rem; display: block; }
+        .kiosk-label { font-weight: 900; font-size: 0.85rem; color: var(--text-dark); display: block; }
+        .kiosk-tag { font-size: 0.65rem; background: var(--accent); color: var(--text-dark); padding: 1px 6px; border-radius: 10px; font-weight: 800; }
+
+        /* ==========================================================================
+           5. BAIRROS E BANCAS RESPONSIVAS
+           ========================================================================== */
+        .bairros-signposts {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0 1rem 0;
+            scrollbar-width: none;
+        }
+
+        .bairros-signposts::-webkit-scrollbar { display: none; }
+
+        .signpost-btn {
+            background: #f4a261;
+            color: #ffffff;
+            border: 2px solid #e76f51;
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #e76f51;
+            flex-shrink: 0;
+        }
+
+        .signpost-btn.active {
+            background: var(--secondary);
+            border-color: #1b4332;
+            box-shadow: 0 3px 0 #1b4332;
+        }
+
+        .bancas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .banca-card {
+            background: #ffffff;
+            border: 3px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-praça);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .banca-toldo {
+            height: 14px;
+            background: repeating-linear-gradient(135deg, 
+                var(--primary) 0, var(--primary) 15px, 
+                #ffffff 15px, #ffffff 30px);
+            border-bottom: 2px solid var(--primary-dark);
+        }
+
+        .banca-image {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .banca-badge-praça {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 900;
+        }
+
+        .banca-time {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .banca-content {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .banca-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banca-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--wood-dark);
+        }
+
+        .banca-rating {
+            background: #fff8e1;
+            border: 1px solid var(--accent);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-weight: 900;
+            font-size: 0.8rem;
+        }
+
+        .banca-dish {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .banca-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.6rem;
+            padding-top: 0.6rem;
+            border-top: 2px dashed var(--border-color);
+        }
+
+        .banca-bairro {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--wood);
+            background: #fdf3e7;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid #f4a261;
+        }
+
+        .btn-pedir-banca {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.52rem 1.1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 900;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 3px 0 var(--primary-dark);
+        }
+
+        /* ==========================================================================
+           6. CESTA DA PRAÇA (CARRINHO)
+           ========================================================================== */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 200;
+        }
+
+        .cart-overlay.active { display: block; }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100%;
+            background: white;
+            z-index: 201;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active { right: 0; }
+
+        .cart-header {
+            padding: 1.2rem;
+            background: #fff3e0;
+            border-bottom: 3px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 { font-size: 1.2rem; font-weight: 900; color: var(--wood-dark); }
+        .close-cart { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
+        .cart-items { flex: 1; overflow-y: auto; padding: 1.2rem; }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-footer {
+            padding: 1.2rem;
+            border-top: 3px solid var(--border-color);
+            background: var(--bg-praça);
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            border-radius: var(--radius-sm);
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #1b4332;
+        }
+
+        @media (min-width: 600px) {
+            .kiosks-wrapper { grid-template-columns: repeat(4, 1fr); }
+            .bancas-grid { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
+            .hero-logo-img { max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="garland-lights"></div>
+
+    <!-- HEADER DA PRAÇA -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-link">
+                <!-- Logótipo da marca em tamanho compacto -->
+                <img src="logo.png" alt="Sistema Capivara Delivery" class="nav-logo-img">
+            </a>
+
+            <button class="basket-btn" id="open-cart">
+                🧺 <span>Sua Cesta</span>
+                <span class="basket-badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- CORETO CENTRAL COM O LOGÓTIPO PRINCIPAL -->
+    <section class="praça-hero">
+        <div class="coreto-card">
+            <div class="coreto-toldo"></div>
+            
+            <!-- Imagem oficial do Sistema Capivara Delivery -->
+            <img src="logo.png" alt="Sistema Capivara Delivery" class="hero-logo-img">
+
+            <p>A praça gastronómica digital de Montes Claros. Pedidos, sabores e gastronomia local num só lugar!</p>
+
+            <div class="search-praça">
+                <input type="text" id="search-input" placeholder="O que deseja saborear na praça hoje?">
+                <button id="search-btn">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA INTERATIVO DA PRAÇA -->
+    <section class="praça-map-section">
+        <div class="map-title">
+            🗺️ Escolha uma Alameda na Praça
+        </div>
+
+        <div class="praça-interactive-map">
+            <div class="kiosks-wrapper">
+                <div class="kiosk-btn active" data-category="all">
+                    <div class="kiosk-mini-toldo"></div>
+                    <span class="kiosk-icon">🎪</span>
+                    <span class="kiosk-label">Toda a Praça</span>
+                    <span class="kiosk-tag">Todos</span>
+                </div>
+                <div class="kiosk-btn" data-category="mineira">
+                    <div class="kiosk-mini-toldo"></div>
+                    <span class="kiosk-icon">🍛</span>
+                    <span class="kiosk-label">Banca Mineira</span>
+                    <span class="kiosk-tag">Regional</span>
+                </div>
+                <div class="kiosk-btn" data-category="pizza">
+                    <div class="kiosk-mini-toldo"></div>
+                    <span class="kiosk-icon">🍕</span>
+                    <span class="kiosk-label">Quiosque Pizza</span>
+                    <span class="kiosk-tag">Forno Lenha</span>
+                </div>
+                <div class="kiosk-btn" data-category="burger">
+                    <div class="kiosk-mini-toldo"></div>
+                    <span class="kiosk-icon">🍔</span>
+                    <span class="kiosk-label">Burger do Coreto</span>
+                    <span class="kiosk-tag">Artesanal</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANCAS & RESTAURANTES NA PRAÇA -->
+    <section class="praça-map-section" id="cardapio">
+        <div class="map-title" style="justify-content: flex-start;">
+            📍 Bairros de Montes Claros:
+        </div>
+
+        <div class="bairros-signposts" id="bairros">
+            <button class="signpost-btn active" data-bairro="all">🪧 Todos os Bairros</button>
+            <button class="signpost-btn" data-bairro="Melo">🪧 Bairro Melo</button>
+            <button class="signpost-btn" data-bairro="Centro">🪧 Centro</button>
+            <button class="signpost-btn" data-bairro="Major Prates">🪧 Major Prates</button>
+            <button class="signpost-btn" data-bairro="Todos os Santos">🪧 Todos os Santos</button>
+            <button class="signpost-btn" data-bairro="Ibituruna">🪧 Ibituruna</button>
+        </div>
+
+        <div class="bancas-grid" id="restaurants-container">
+            <!-- Inseridos via JS -->
+        </div>
+    </section>
+
+    <!-- CESTA / CARRINHO -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>🧺 A Sua Cesta da Praça</h2>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+
+        <div class="cart-items" id="cart-items">
+            <p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">A sua cesta está vazia.<br>Escolha um petisco na praça!</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total da Cesta:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="btn-checkout" onclick="finalizarPedido()">Confirmar Pedido na Praça</button>
+        </div>
+    </div>
+
+    <script>
+        const restaurantsData = [
+            {
+                id: 1,
+                name: "Cantinho Mineiro",
+                category: "mineira",
+                bairro: "Melo",
+                dish: "Tropeiro Completo com Torresmo Crocante",
+                price: 34.90,
+                rating: 4.9,
+                time: "25-35 min",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                name: "Sabor Sertanejo",
+                category: "mineira",
+                bairro: "Centro",
+                dish: "Carne de Sol com Mandioca na Manteiga",
+                price: 42.00,
+                rating: 4.8,
+                time: "30-40 min",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                name: "Ibituruna Pizzaria",
+                category: "pizza",
+                bairro: "Ibituruna",
+                dish: "Pizza Margherita Artesanal na Lenha",
+                price: 49.90,
+                rating: 4.7,
+                time: "35-45 min",
+                image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                name: "Brasa Norte Burger",
+                category: "burger",
+                bairro: "Major Prates",
+                dish: "Burger Capivara com Queijo Canastra",
+                price: 29.90,
+                rating: 4.9,
+                time: "20-30 min",
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let currentBairro = 'all';
+        let searchQuery = '';
+        let cart = [];
+
+        const container = document.getElementById('restaurants-container');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart');
+        const closeCartBtn = document.getElementById('close-cart');
+        const cartCountEl = document.getElementById('cart-count');
+        const cartItemsEl = document.getElementById('cart-items');
+        const cartTotalEl = document.getElementById('cart-total');
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+
+        function renderRestaurants() {
+            container.innerHTML = '';
+
+            const filtered = restaurantsData.filter(item => {
+                const matchCategory = currentCategory === 'all' || item.category === currentCategory;
+                const matchBairro = currentBairro === 'all' || item.bairro === currentBairro;
+                const matchSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                    item.dish.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                    item.bairro.toLowerCase().includes(searchQuery.toLowerCase());
+
+                return matchCategory && matchBairro && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+                        <h3>🦫 Quiosque fechado nesta alameda.</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Procure noutro bairro ou categoria da praça.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'banca-card';
+                card.innerHTML = `
+                    <div class="banca-toldo"></div>
+                    <div class="banca-image" style="background-image: url('${item.image}')">
+                        <span class="banca-badge-praça">Banca Aberta</span>
+                        <span class="banca-time">🕒 ${item.time}</span>
+                    </div>
+                    <div class="banca-content">
+                        <div class="banca-header">
+                            <h3 class="banca-title">${item.name}</h3>
+                            <div class="banca-rating">⭐ ${item.rating}</div>
+                        </div>
+                        <p class="banca-dish">${item.dish}</p>
+                        <div class="banca-footer">
+                            <span class="banca-bairro">📍 ${item.bairro}</span>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <strong style="color: var(--primary); font-size: 1rem;">R$ ${item.price.toFixed(2).replace('.', ',')}</strong>
+                                <button class="btn-pedir-banca" onclick="addToCart(${item.id})">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function addToCart(id) {
+            const product = restaurantsData.find(item => item.id === id);
+            const existing = cart.find(item => item.id === id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountEl.textContent = totalItems;
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = `<p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">A sua cesta está vazia.<br>Escolha um petisco na praça!</p>`;
+                cartTotalEl.textContent = "R$ 0,00";
+                return;
+            }
+
+            cartItemsEl.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item';
+                itemEl.innerHTML = `
+                    <div>
+                        <h4 style="font-weight: 800; font-size: 0.9rem;">${item.name}</h4>
+                        <p style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">${item.quantity}x R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                    </div>
+                    <strong>R$ ${itemTotal.toFixed(2).replace('.', ',')}</strong>
+                `;
+                cartItemsEl.appendChild(itemEl);
+            });
+
+            cartTotalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function toggleCart(show) {
+            if (show) {
+                cartSidebar.classList.add('active');
+                cartOverlay.classList.add('active');
+            } else {
+                cartSidebar.classList.remove('active');
+                cartOverlay.classList.remove('active');
+            }
+        }
+
+        function finalizarPedido() {
+            if(cart.length === 0) {
+                alert("Adicione pratos à cesta primeiro!");
+                return;
+            }
+            alert("🦫 Pedido recebido no Sistema Capivara! Os detalhes foram enviados para o restaurante.");
+            cart = [];
+            updateCartUI();
+            toggleCart(false);
+        }
+
+        document.querySelectorAll('.kiosk-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.kiosk-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.getAttribute('data-category');
+                renderRestaurants();
+            });
+        });
+
+        document.querySelectorAll('.signpost-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.signpost-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentBairro = btn.getAttribute('data-bairro');
+                renderRestaurants();
+            });
+        });
+
+        searchBtn.addEventListener('click', () => {
+            searchQuery = searchInput.value;
+            renderRestaurants();
+        });
+
+        searchInput.addEventListener('keyup', (e) => {
+            searchQuery = e.target.value;
+            renderRestaurants();
+        });
+
+        openCartBtn.addEventListener('click', () => toggleCart(true));
+        closeCartBtn.addEventListener('click', () => toggleCart(false));
+        cartOverlay.addEventListener('click', () => toggleCart(false));
+
+        renderRestaurants();
+    </script>
+</body>
+</html>
 
