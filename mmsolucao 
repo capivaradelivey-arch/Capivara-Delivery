@@ -1,0 +1,780 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Meu Negócio na Prática | Marcos Dias - MM Soluções</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        google: {
+                            blue: '#1A73E8',
+                            red: '#EA4335',
+                            yellow: '#FBBC05',
+                            green: '#34A853',
+                            darkBlue: '#0d47a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0D47A1 100%);
+        }
+        .accent-gradient {
+            background: linear-gradient(90deg, #1A73E8 0%, #34A853 100%);
+        }
+        .cta-btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.6); }
+            70% { box-shadow: 0 0 0 16px rgba(52, 168, 83, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 168, 83, 0); }
+        }
+        /* Custom Ebook Cover Styling */
+        .ebook-3d {
+            perspective: 1000px;
+        }
+        .ebook-cover {
+            transform: rotateY(-18deg) rotateX(8deg);
+            box-shadow: -15px 15px 30px rgba(0,0,0,0.4), 0 0 20px rgba(26, 115, 232, 0.3);
+            transition: all 0.5s ease;
+        }
+        .ebook-cover:hover {
+            transform: rotateY(-5deg) rotateX(2deg) scale(1.02);
+            box-shadow: -20px 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(26, 115, 232, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-google-blue selection:text-white">
+
+    <!-- Top Bar Notice -->
+    <div class="bg-gradient-to-r from-google-blue via-indigo-600 to-google-green text-white text-center py-2.5 px-4 font-semibold text-xs md:text-sm flex items-center justify-center gap-2 shadow-sm">
+        <span class="bg-amber-400 text-slate-900 text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full tracking-wider">Oferta Especial</span>
+        <span>Adquira hoje o Guia Definitivo por apenas <strong>R$ 97,00</strong> e receba o Bônus de Vendas!</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-900/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-google-blue to-google-green flex items-center justify-center text-white font-black text-xl shadow-md">
+                    MM
+                </div>
+                <div>
+                    <span class="text-white font-bold text-lg tracking-tight">MM SOLUÇÕES</span>
+                    <span class="hidden sm:inline-block text-xs text-slate-400 block -mt-1 font-medium">Empresariais & Digitais</span>
+                </div>
+            </div>
+            <a href="#oferta" class="bg-google-green hover:bg-emerald-600 text-white font-bold text-xs md:text-sm px-5 py-2.5 rounded-xl transition duration-300 shadow-md flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Garantir Meu Ebook</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-12 md:py-20 overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#1A73E8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left: Text Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-google-blue/20 border border-google-blue/40 px-3.5 py-1.5 rounded-full text-google-blue font-medium text-xs md:text-sm">
+                        <i class="fa-solid fa-star text-google-yellow"></i>
+                        <span class="text-slate-200">Versão Profissional Atualizada</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                        Google Meu Negócio <br class="hidden sm:inline"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-google-blue via-sky-400 to-google-green">Na Prática</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base md:text-xl font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Coloque qualquer empresa no topo do Google e do Maps sem pagar por anúncios. Atraia centenas de novos clientes todos os meses!
+                    </p>
+
+                    <!-- Feature Bullets -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-left max-w-xl mx-auto lg:mx-0 text-sm md:text-base text-slate-200">
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Passo a passo do zero ao topo</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Plano Prático de 30 Dias</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                            <span>Estratégia de Fotos & Avaliações</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-google-yellow text-lg"></i>
+                            <span><strong>Bônus:</strong> Como Vender Implantações</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Button Area -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#oferta" class="cta-btn-pulse w-full sm:w-auto bg-google-green hover:bg-emerald-600 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition duration-300 shadow-xl flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-bolt text-amber-300"></i>
+                            <span>QUERO ACESSAR O EBOOK AGORA</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 pt-2">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-google-blue"></i> Compra 100% Segura</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-pdf text-google-red"></i> Formato PDF Digital</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-google-yellow"></i> Acesso Imediato</span>
+                    </div>
+                </div>
+
+                <!-- Hero Right: 3D Ebook Mockup -->
+                <div class="lg:col-span-5 flex justify-center ebook-3d">
+                    <div class="ebook-cover w-72 sm:w-80 md:w-88 bg-gradient-to-br from-slate-900 via-slate-800 to-google-darkBlue p-6 rounded-2xl border-2 border-slate-700/60 relative">
+                        <!-- Top Tag -->
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="bg-google-blue/30 text-sky-300 border border-sky-400/30 text-[10px] font-extrabold px-2.5 py-1 rounded-md tracking-widest uppercase">EBOOK DIGITAL</span>
+                            <div class="flex items-center gap-1 text-google-yellow text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <!-- Book Title inside mockup -->
+                        <div class="space-y-3 my-8 text-left">
+                            <p class="text-google-yellow font-bold text-xs uppercase tracking-wider">GUIA PRÁTICO DEFINITIVO</p>
+                            <h2 class="text-white font-black text-2xl sm:text-3xl leading-tight">
+                                GOOGLE MEU NEGÓCIO
+                            </h2>
+                            <p class="text-sky-400 font-extrabold text-lg">DO ZERO AO TOPO DO GOOGLE</p>
+                            <div class="w-16 h-1 bg-google-green rounded-full my-3"></div>
+                            <p class="text-slate-300 text-xs">Aprenda a cadastrar, otimizar e posicionar empresas locais na 1ª página do Google Maps.</p>
+                        </div>
+
+                        <!-- Badge Map Pin -->
+                        <div class="my-6 flex items-center gap-3 bg-slate-900/80 p-3 rounded-xl border border-slate-700">
+                            <div class="w-10 h-10 rounded-lg bg-google-red flex items-center justify-center text-white font-bold text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="text-left text-xs">
+                                <div class="text-white font-bold">Domine o Google Maps</div>
+                                <div class="text-slate-400">Atraia clientes 24 horas</div>
+                            </div>
+                        </div>
+
+                        <!-- Author Footer inside mockup -->
+                        <div class="pt-4 border-t border-slate-700/60 flex justify-between items-center text-left">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium">AUTOR & ESPECIALISTA</p>
+                                <p class="text-slate-200 font-bold text-xs">Marcos Dias</p>
+                            </div>
+                            <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-0.5 rounded font-semibold">MM Soluções</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat Highlights / Pain Points -->
+    <section class="py-10 bg-white border-b border-slate-200 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-google-blue flex items-center justify-center text-xl shrink-0 font-bold">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-slate-900">Visibilidade 24h</h4>
+                        <p class="text-xs text-slate-600">Sua vitrine digital aberta e atraindo quem busca comprar agora.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0 font-bold">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-slate-900">Mais Ligações e Rotas</h4>
+                        <p class="text-xs text-slate-600">Multiplique os chamados no WhatsApp e visitas presenciais.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-google-green flex items-center justify-center text-xl shrink-0 font-bold">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-slate-900">Renda Extra / Serviços</h4>
+                        <p class="text-xs text-slate-600">Aprenda a vender implantações de R$ 300 a R$ 800 por cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Whom Section -->
+    <section class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-xs font-extrabold uppercase text-google-blue tracking-widest mb-2">Para quem é este material?</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Este Ebook foi feito sob medida para você que quer resultados reais</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-google-blue/10 text-google-blue flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Comerciantes e Loja Física</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Faça os clientes da sua cidade encontrarem sua loja, endereço e catálogo em segundos.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-google-green/10 text-google-green flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Prestadores de Serviço</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Eletricistas, advogados, dentistas, mecânicos ou técnicos que precisam de orçamentos diários.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Consultores Iniciantes</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Deseja faturar prestando serviços de otimização de ficha de empresas locais na sua região.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-google-red/10 text-google-red flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Restaurantes & Delivery</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Receba mais pedidos e visitas destacando fotos atraentes e ótimas avaliações no mapa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules / Contents Breakdown -->
+    <section class="py-16 md:py-24 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase text-google-blue tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Conteúdo 100% Prático</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3">O Que Você Vai Aprender Passo a Passo</h2>
+                <p class="text-slate-600 mt-3">Sem enrolação técnica. Apenas o que funciona para colocar o perfil no topo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Chapter 1 & 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-google-blue/40 transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-google-blue text-white font-bold flex items-center justify-center text-sm">01</span>
+                        <h3 class="font-bold text-slate-900 text-lg">Fundamentos & Os 3 Fatores do Algoritmo</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Entenda exatamente como o Google decide quem aparece primeiro no mapa:</p>
+                    <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> <strong>Relevância:</strong> Otimização completa do perfil.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> <strong>Distância:</strong> Como atrair o cliente da sua zona.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> <strong>Proeminência:</strong> Engajamento e reputação.</li>
+                    </ul>
+                </div>
+
+                <!-- Chapter 3 & 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-google-blue/40 transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-google-blue text-white font-bold flex items-center justify-center text-sm">02</span>
+                        <h3 class="font-bold text-slate-900 text-lg">Cadastro & Descrição Estratégica</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Como evitar bloqueios no cadastro e escrever cópias de alto impacto:</p>
+                    <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Escolha da Categoria Principal correta.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Fórmula: Serviço + Cidade + Diferencial.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Processo de Verificação sem dores de cabeça.</li>
+                    </ul>
+                </div>
+
+                <!-- Chapter 5 & 6 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-google-blue/40 transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-google-blue text-white font-bold flex items-center justify-center text-sm">03</span>
+                        <h3 class="font-bold text-slate-900 text-lg">Estratégia de Fotos & Produtos</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Gere mais cliques e pedidos de rotas publicando o conteúdo certo:</p>
+                    <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Fotos de fachada, equipe e interior que vendem.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Cadastro otimizado do catálogo de produtos.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Uso de palavras-chave locais no catálogo.</li>
+                    </ul>
+                </div>
+
+                <!-- Chapter 7 & 8 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-google-blue/40 transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-google-blue text-white font-bold flex items-center justify-center text-sm">04</span>
+                        <h3 class="font-bold text-slate-900 text-lg">Gestão de Avaliações 5 Estrelas</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Construa a maior prova social da sua cidade com roteiros de abordagem:</p>
+                    <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Script pronto de WhatsApp pós-venda.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Como responder avaliações positivas profissionalmente.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Como reverter e responder avaliações negativas.</li>
+                    </ul>
+                </div>
+
+                <!-- Chapter 9 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-google-blue/40 transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-google-blue text-white font-bold flex items-center justify-center text-sm">05</span>
+                        <h3 class="font-bold text-slate-900 text-lg">Postagens Que Geram Clientes</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Transforme a ficha em uma rede social ativa com foco em conversão:</p>
+                    <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Frequência ideal de postagens (2x por semana).</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Promoções, novidades e depoimentos.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-google-green"></i> Chamadas de Ação (CTA) eficientes.</li>
+                    </ul>
+                </div>
+
+                <!-- Chapter 10 -->
+                <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white p-6 rounded-2xl border border-blue-700 transition shadow-md">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-google-yellow text-slate-900 font-extrabold flex items-center justify-center text-sm">06</span>
+                        <h3 class="font-bold text-white text-lg">Plano Prático de 30 Dias</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4">Seu cronograma exato para dominar a primeira página:</p>
+                    <ul class="space-y-2 text-xs text-slate-200 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-week text-google-yellow"></i> <strong>Semana 1:</strong> Criar e otimizar perfil.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-week text-google-yellow"></i> <strong>Semana 2:</strong> Inserir fotos e produtos.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-week text-google-yellow"></i> <strong>Semana 3:</strong> Conseguir 10 avaliações 5 estrelas.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-calendar-week text-google-yellow"></i> <strong>Semana 4:</strong> Postar e revisar estratégia.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXCLUSIVE BONUS SECTION -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="bg-amber-400 text-slate-900 text-xs font-black uppercase px-4 py-1 rounded-full w-fit mx-auto mb-6 tracking-widest">
+                <i class="fa-solid fa-gift mr-1"></i> BÔNUS EXCLUSIVO INCLUSO
+            </div>
+
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">
+                    Como Vender Implantação de Google Meu Negócio
+                </h2>
+                <p class="text-slate-300 text-base md:text-lg mt-4">
+                    Não venda apenas cadastros. Aprenda a vender <strong>visibilidade e novos clientes</strong> para empresários da sua cidade.
+                </p>
+            </div>
+
+            <!-- Bonus Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                
+                <div class="bg-slate-800/80 backdrop-blur border border-slate-700 p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-xl bg-google-blue/20 text-google-blue flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Abordagem Infalível</h3>
+                    <p class="text-slate-300 text-sm">
+                        Modelo de script pronto para abordar empresários que estão perdendo clientes para a concorrência e fechando negócios rapidamente.
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/80 backdrop-blur border border-slate-700 p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-xl bg-google-green/20 text-google-green flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Estrutura de Planos</h3>
+                    <ul class="text-slate-300 text-xs space-y-2 mt-3">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-google-green"></i> <strong>Plano Básico:</strong> Cadastro Completo.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-google-green"></i> <strong>Plano Intermediário:</strong> Cadastro + Fotos + Avaliações.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-google-green"></i> <strong>Plano Premium:</strong> Gestão mensal estratégica.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/80 backdrop-blur border border-slate-700 p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center text-2xl font-bold mb-4">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Tabela de Precificação</h3>
+                    <p class="text-slate-300 text-xs mb-3">Saiba quanto cobrar na sua cidade:</p>
+                    <div class="space-y-2 text-xs">
+                        <div class="bg-slate-900/60 p-2.5 rounded-lg flex justify-between items-center">
+                            <span class="text-slate-400">Cadastro / Otmz.:</span>
+                            <span class="text-google-green font-bold text-sm">R$ 300 a R$ 800</span>
+                        </div>
+                        <div class="bg-slate-900/60 p-2.5 rounded-lg flex justify-between items-center">
+                            <span class="text-slate-400">Gestão Mensal:</span>
+                            <span class="text-amber-400 font-bold text-sm">R$ 300 a R$ 1.200/mês</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive Income Calculator -->
+            <div class="bg-gradient-to-r from-google-blue/20 to-emerald-950/40 p-6 md:p-8 rounded-3xl border border-google-blue/30 max-w-4xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl md:text-2xl font-bold text-white">Simulador de Faturamento como Prestador de Serviço</h3>
+                    <p class="text-xs text-slate-300 mt-1">Calcule quanto você pode ganhar prestando este serviço na sua região:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Número de Clientes Fechados no Mês:</label>
+                            <input type="range" id="clientRange" min="1" max="10" value="3" class="w-full accent-google-green cursor-pointer" oninput="updateCalculator()">
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>1 cliente</span>
+                                <span id="clientCountText" class="font-bold text-amber-400">3 clientes</span>
+                                <span>10 clientes</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Valor Cobrado por Cadastro (R$):</label>
+                            <input type="range" id="priceRange" min="300" max="800" step="50" value="500" class="w-full accent-google-green cursor-pointer" oninput="updateCalculator()">
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>R$ 300</span>
+                                <span id="priceText" class="font-bold text-google-green">R$ 500</span>
+                                <span>R$ 800</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-6 rounded-2xl text-center border border-slate-700">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Potencial de Faturamento Extra</span>
+                        <div id="totalIncome" class="text-3xl md:text-4xl font-black text-google-green my-2">R$ 1.500,00</div>
+                        <p class="text-[11px] text-slate-400">Com apenas um investimento único de <strong>R$ 97,00</strong> neste Ebook!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="py-16 md:py-24 bg-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center gap-8">
+                
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-tr from-google-blue to-google-green p-1 shrink-0 shadow-lg">
+                    <div class="w-full h-full bg-slate-800 rounded-full flex flex-col items-center justify-center text-white p-4 text-center">
+                        <i class="fa-solid fa-user-check text-4xl text-sky-400 mb-2"></i>
+                        <span class="font-bold text-sm">Marcos Dias</span>
+                        <span class="text-[10px] text-slate-300">MM Soluções</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-center md:text-left">
+                    <span class="text-xs font-bold text-google-blue uppercase tracking-widest">Quem será seu mentor</span>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900">Prazer, Marcos Dias</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Fundador da <strong>MM Soluções Empresariais</strong>, especialista em posicionamento estratégico e crescimento de empresas locais no ambiente digital. 
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Este guia foi criado com base em estratégias reais testadas no mercado para ajudar micro e pequenos empresários a não dependerem apenas de indicações e conquistarem clientes todos os dias através do Google.
+                    </p>
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs font-semibold text-slate-700">
+                        <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-check text-google-green mr-1"></i> MM Soluções Empresariais</span>
+                        <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-check text-google-green mr-1"></i> Método Prático e Testado</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Offer Section -->
+    <section id="oferta" class="py-16 md:py-24 bg-slate-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <span class="bg-google-yellow/20 text-amber-300 border border-amber-400/30 font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider">
+                OFERTA POR TEMPO LIMITADO
+            </span>
+
+            <h2 class="text-3xl md:text-5xl font-black text-white mt-4 mb-2">
+                Tome a decisão de dominar a sua região hoje mesmo!
+            </h2>
+            <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-10">
+                Acesso imediato ao Ebook Completo em PDF + Bônus de Vendas e Precificação.
+            </p>
+
+            <!-- Main Offer Card -->
+            <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border-2 border-google-blue shadow-2xl relative overflow-hidden max-w-xl mx-auto">
+                <div class="absolute -right-12 -top-12 w-32 h-32 bg-google-blue/20 rounded-full blur-2xl"></div>
+
+                <!-- Price Breakdown -->
+                <div class="space-y-2 mb-6">
+                    <span class="text-slate-400 line-through text-lg">De R$ 197,00</span>
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-slate-300 text-xl font-bold">Por apenas</span>
+                        <span class="text-4xl sm:text-6xl font-black text-google-green">R$ 97</span>
+                        <span class="text-slate-300 font-bold">,00</span>
+                    </div>
+                    <span class="text-xs text-amber-400 font-semibold block">Pagamento único • Sem mensalidades</span>
+                </div>
+
+                <!-- Features checklist -->
+                <div class="text-left space-y-3 py-6 border-y border-slate-700 my-6 text-sm">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                        <span>Ebook Google Meu Negócio na Prática (PDF)</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                        <span>Plano de Ação de 30 Dias Detalhado</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-google-green text-lg"></i>
+                        <span>Scripts para Conseguir Avaliações 5 Estrelas</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-google-yellow text-lg"></i>
+                        <span><strong>BÔNUS:</strong> Guia de Vendas e Precificação (R$ 300 a R$ 1.200)</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-google-blue text-lg"></i>
+                        <span>Acesso vitalício ao material</span>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button onclick="openCheckoutModal()" class="cta-btn-pulse w-full bg-google-green hover:bg-emerald-600 text-white font-black text-xl py-4 px-6 rounded-2xl shadow-xl transition duration-300 flex items-center justify-center gap-3 cursor-pointer">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>COMPRAR AGORA POR R$ 97,00</span>
+                </button>
+
+                <div class="mt-6 flex items-center justify-center gap-4 text-xs text-slate-400">
+                    <span><i class="fa-solid fa-lock text-google-green"></i> Checkout Seguro</span>
+                    <span><i class="fa-solid fa-bolt text-google-yellow"></i> Entrega Imediata</span>
+                </div>
+            </div>
+
+            <!-- Guarantee Box -->
+            <div class="mt-12 max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-5 p-6 bg-slate-800/60 rounded-2xl border border-slate-700 text-left">
+                <div class="w-20 h-20 rounded-full bg-amber-400/20 text-amber-400 flex items-center justify-center text-4xl shrink-0 font-bold border border-amber-400/40">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base mb-1">Garantia Incondicional de 7 Dias</h4>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Adquira o Ebook, leia o conteúdo e aplique as estratégias. Se dentro de 7 dias você achar que o material não ajudou seu negócio, nós devolvemos 100% do seu dinheiro sem complicações.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase text-google-blue tracking-widest">Tire suas dúvidas</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Perguntas Frequentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 focus:outline-none" onclick="toggleFaq(1)">
+                        <span>Como vou receber o Ebook após a compra?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-google-blue transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-5 pb-5 text-slate-600 text-sm">
+                        O envio é imediato! Assim que seu pagamento de R$ 97,00 for confirmado, você receberá o link para download direto do arquivo em PDF no seu e-mail ou WhatsApp.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 focus:outline-none" onclick="toggleFaq(2)">
+                        <span>Eu não entendo de tecnologia. Consigo aplicar?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-google-blue transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-slate-600 text-sm">
+                        Com certeza! O livro foi escrito em linguagem simples e prática, mostrando exatamente onde clicar em cada etapa do processo.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 focus:outline-none" onclick="toggleFaq(3)">
+                        <span>Preciso pagar anúncios no Google para aparecer?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-google-blue transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-slate-600 text-sm">
+                        Não! Este guia ensina o posicionamento <strong>orgânico</strong> (gratuito) no Google Meu Negócio e Google Maps. Você não precisa investir em anúncios pagos.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 focus:outline-none" onclick="toggleFaq(4)">
+                        <span>Posso usar o Ebook para prestar serviços a outras empresas?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-google-blue transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-4" class="hidden px-5 pb-5 text-slate-600 text-sm">
+                        Sim! Incluímos um <strong>Bônus Exclusivo de Vendas</strong> com a estrutura completa de como abordar empresas locais, quais planos oferecer e como cobrar de R$ 300 a R$ 1.200 por serviço.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-google-blue flex items-center justify-center text-white font-black text-sm">
+                    MM
+                </div>
+                <span class="text-white font-bold tracking-tight">MM Soluções Empresariais</span>
+            </div>
+
+            <p class="text-xs max-w-xl mx-auto text-slate-400">
+                Google Meu Negócio na Prática - Do Zero ao Topo do Google <br>
+                Autoria: Marcos Dias • MM Soluções Empresariais.
+            </p>
+
+            <div class="text-[11px] text-slate-400 pt-4 border-t border-slate-900">
+                &copy; <span id="year"></span> MM Soluções. Todos os direitos reservados. <br>
+                Este site não tem vínculo oficial com o Google LLC. "Google" e "Google Maps" são marcas registradas do Google LLC.
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE CHECKOUT SIMULATION MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
+            
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 flex items-center justify-center rounded-full bg-slate-100">
+                &times;
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-emerald-100 text-google-green mx-auto flex items-center justify-center text-xl font-bold mb-2">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">Finalizar Pedido</h3>
+                <p class="text-xs text-slate-500">Google Meu Negócio na Prática — <strong>R$ 97,00</strong></p>
+            </div>
+
+            <form id="checkoutForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Seu Nome Completo:</label>
+                    <input type="text" required placeholder="Ex: Marcos Dias" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-google-blue focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Seu E-mail para Receber o PDF:</label>
+                    <input type="email" required placeholder="seuemail@exemplo.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-google-blue focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp para Suporte:</label>
+                    <input type="tel" required placeholder="(38) 99999-9999" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-google-blue focus:outline-none">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-google-green hover:bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition text-base flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>GARANTIR POR R$ 97,00 NO WHATSAPP</span>
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-[10px] text-center text-slate-400 mt-4">
+                Ao clicar, você será direcionado ao atendimento direto da <strong>MM Soluções</strong> para concluir o pagamento via PIX com desconto.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript Actions -->
+    <script>
+        // Set dynamic year
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // FAQ Toggle Logic
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Income Calculator Logic
+        function updateCalculator() {
+            const clients = parseInt(document.getElementById('clientRange').value);
+            const price = parseInt(document.getElementById('priceRange').value);
+
+            document.getElementById('clientCountText').innerText = clients + (clients === 1 ? ' cliente' : ' clientes');
+            document.getElementById('priceText').innerText = 'R$ ' + price;
+
+            const total = clients * price;
+            document.getElementById('totalIncome').innerText = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+        }
+
+        // Modal Logic
+        function openCheckoutModal() {
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        // Form Action Simulation
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu interesse! Redirecionando para o WhatsApp da MM Soluções para entrega do Ebook.');
+            closeCheckoutModal();
+        }
+    </script>
+</body>
+</html>
+```
